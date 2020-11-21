@@ -7,23 +7,20 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import { Home } from "./pages/home";
-import { Contact } from "./pages/contact";
-import { About } from "./pages/about";
+import Home from "./pages/home/index";
+//import Contact from "./pages/contact/index";
+//import About from "./pages/about/index";
 
 class App extends Component {
   render() {
     return (
-      <Router basename={process.env.PUBLIC_URL}>
-        <Switch>
-          <Route exact true path="/" component={Home} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/about" exact component={About} />
+      <Router>
+       
+          <Route exact path="/" component={Home} />
 
           {/* Create a 404 Page If route not found,
             currently being Redirected to Home Page */}
-          <Route path="/" render={() => <Redirect to={{ pathname: "/" }} />} />
-        </Switch>
+
       </Router>
     );
   }
